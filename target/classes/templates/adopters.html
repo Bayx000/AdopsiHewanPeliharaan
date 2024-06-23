@@ -16,6 +16,7 @@
                 <th>Email</th>
                 <th>No. Telepon</th>
                 <th>Alamat</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -24,10 +25,10 @@
                 <td th:text="${adopter.email}"></td>
                 <td th:text="${adopter.nomor_telepon}"></td>
                 <td th:text="${adopter.addres}"></td>
+                <td>
+                    <a th:href="@{/adopters/delete/{id}(id=${adopter.id})}">Hapus</a>
+                </td>
             </tr>
-
-            <!-- DEBUG ONLY -->
-            <!-- <code th:text="${adopters}"></code> -->
         </tbody>
     </table>
     <a th:href="@{/adopters/save}">Tambah Adopter Baru</a>
