@@ -25,10 +25,17 @@
                 <td th:text="${adopter.nomor_telepon}"></td>
                 <td th:text="${adopter.addres}"></td>
             </tr>
-            <code th:text="${adopters}"></code>
+
+            <!-- DEBUG ONLY -->
+            <!-- <code th:text="${adopters}"></code> -->
         </tbody>
     </table>
-    <!-- <a href="/adopters/new">Tambah Adopter Baru</a> -->
+    <a th:href="@{/adopters/save}">Tambah Adopter Baru</a>
+
+    <footer>
+        <p>Author: Bayx, Hapis</p>
+        <p>Contributor: Ryuuwiz</p>
+    </footer>
 </body>
 
 </html>

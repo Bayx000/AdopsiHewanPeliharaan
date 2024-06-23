@@ -3,6 +3,7 @@ package com.kelompok3.AdopsiHewanPeliharaan.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,10 +30,18 @@ public class AdopterController {
         return "adopters";
     }
 
-    // @PostMapping("/adopters")
-    // public String saveAdopter(@Validated @ModelAttribute Adopter adopter) {
-    // adopterRepo.save(adopter);
-    // return "redirect:/adopters";
-    // }
+    @GetMapping("/adopters/save")
+    public String viewSaveAdopter() {
+        return "create_adopter";
+    }
+
+    @PostMapping("/adopters/save")
+    public String saveAdopter(@Validated @ModelAttribute AdopterDto adopter, BindingResult result) {
+        if (result.hasErrors()) {
+            return "create_adopter";
+        }
+        adopterService.simpan(adopter);
+        return "redirect:/";
+    }
 
 }
