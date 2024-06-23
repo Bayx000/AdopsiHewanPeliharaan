@@ -7,14 +7,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 import com.kelompok3.AdopsiHewanPeliharaan.dto.AdopterDto;
-import com.kelompok3.AdopsiHewanPeliharaan.model.Adopter;
-import com.kelompok3.AdopsiHewanPeliharaan.repository.AdopterRepo;
 import com.kelompok3.AdopsiHewanPeliharaan.service.AdopterService;
 
 @Controller
@@ -41,6 +40,12 @@ public class AdopterController {
             return "create_adopter";
         }
         adopterService.simpan(adopter);
+        return "redirect:/";
+    }
+
+    @GetMapping("/adopters/delete/{id}")
+    public String removeAdopter(@PathVariable("id") Integer id) {
+        adopterService.hapus(id);
         return "redirect:/";
     }
 
