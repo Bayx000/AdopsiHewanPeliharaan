@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambah Hewan Baru</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Tambah Hewan Baru</h1>
+    <form th:action="@{/animals}" th:object="${animal}" method="post">
+        <div>
+            <label for="nama_hewan">Nama</label>
+            <input type="text" id="nama_hewan" th:field="*{nama_hewan}" required>
+        </div>
+        <div>
+            <label for="type_hewan">Jenis</label>
+            <input type="text" id="type_hewan" th:field="*{type_hewan}" required>
+        </div>
+        <div>
+            <label for="available">Tersedia</label>
+            <input type="checkbox" id="available" th:field="*{available}">
+        </div>
+        <div>
+            <button type="submit">Simpan</button>
+        </div>
+    </form>
+    <a href="/animals">Kembali ke Daftar Hewan</a>
+</body>
+</html>
