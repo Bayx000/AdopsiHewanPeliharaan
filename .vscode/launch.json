@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-AdopsiHewanPeliharaanApplication<AdopsiHewanPeliharaan>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.kelompok3.AdopsiHewanPeliharaan.AdopsiHewanPeliharaanApplication",
+      "projectName": "AdopsiHewanPeliharaan",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

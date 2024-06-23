@@ -21,6 +21,7 @@ public class AdopterService {
         Adopter adopter = Mapper.mapAdopter(adopterDto);
         return Mapper.mapAdopterDto(adopterRepo.save(adopter));
     }
+
     public List<AdopterDto> semua() {
         List<Adopter> semua = adopterRepo.findAll();
         return semua.stream().map(Mapper::mapAdopterDto).collect(Collectors.toList());
