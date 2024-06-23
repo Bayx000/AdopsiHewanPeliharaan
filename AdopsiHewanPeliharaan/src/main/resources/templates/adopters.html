@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Adopter</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Daftar Adopter</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>No. Telepon</th>
+                <th>Alamat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="adopter : ${adopters}">
+                <td th:text="${adopter.nama}"></td>
+                <td th:text="${adopter.email}"></td>
+                <td th:text="${adopter.no_telepon}"></td>
+                <td th:text="${adopter.addres}"></td>
+            </tr>
+            <code th:text="${adopters}"></code>
+        </tbody>
+    </table>
+    <a href="/adopters/new">Tambah Adopter Baru</a>
+</body>
+</html>
