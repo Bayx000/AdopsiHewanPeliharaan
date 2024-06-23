@@ -11,27 +11,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+import com.kelompok3.AdopsiHewanPeliharaan.dto.AdopterDto;
 import com.kelompok3.AdopsiHewanPeliharaan.model.Adopter;
 import com.kelompok3.AdopsiHewanPeliharaan.repository.AdopterRepo;
+import com.kelompok3.AdopsiHewanPeliharaan.service.AdopterService;
 
 @Controller
 @RequestMapping("/")
 public class AdopterController {
     @Autowired
-    private AdopterRepo adopterRepo;
+    private AdopterService adopterService;
 
     @GetMapping
-    public String getAllAdopters(Model model){
-        List<Adopter> adopters = adopterRepo.findAll();
+    public String getAllAdopters(Model model) {
+        List<AdopterDto> adopters = adopterService.semua();
         model.addAttribute("adopters", adopters);
         return "adopters";
     }
 
-    @PostMapping("/adopters")
-    public String saveAdopter(@Validated @ModelAttribute Adopter adopter){
-        adopterRepo.save(adopter);
-        return "redirect:/adopters";
-    }
+    // @PostMapping("/adopters")
+    // public String saveAdopter(@Validated @ModelAttribute Adopter adopter) {
+    // adopterRepo.save(adopter);
+    // return "redirect:/adopters";
+    // }
 
-    
 }
